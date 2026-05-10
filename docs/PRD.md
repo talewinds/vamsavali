@@ -1,6 +1,6 @@
 # Project Requirements Document (PRD)
 
-## Tamil Brahmin Community Family Tree Web Application
+# Tamil Brahmin Community Family Tree Web Application
 
 ---
 
@@ -10,258 +10,465 @@
 
 **Tamil Brahmin Family Tree Portal**
 
+---
+
 ## Project Objective
 
-The objective of this application is to build a secure, private, community-only family tree platform for Tamil Brahmin families. The platform will allow members to voluntarily register their details, create interconnected family trees, and preserve lineage information digitally.
+The objective of this application is to build a secure, private, community-only genealogy and family tree platform for Tamil Brahmin families.
 
-The system must support:
+The platform will:
+
+* Preserve lineage and heritage digitally
+* Build a unified interconnected community genealogy network
+* Allow members to voluntarily contribute family information
+* Enable collaborative family tree building
+* Support admin-controlled verification and approvals
+* Prevent duplicate or disconnected family trees
+
+The application must support:
 
 * Thousands of members
-* Admin-controlled approvals
-* Editable family records
-* Multi-generation family tree visualization
-* Community lineage verification
-* Collaborative family updates with approval workflow
+* Multi-generation interconnected families
+* Intelligent relationship matching
+* Secure approval workflows
+* Non-destructive editing
+* Mobile-first usability
 
-The application should be mobile-friendly, simple for elderly users, and scalable for long-term community use.
+The system must be simple enough for elderly users and scalable for future generations.
 
 ---
 
-# 2. User Roles
+# 2. Core System Philosophy
 
-## 2.1 Admin Role
+# IMPORTANT ARCHITECTURAL PRINCIPLE
 
-Admins will have complete control over:
+The application shall NOT create isolated individual family trees.
+
+Instead, the application shall maintain:
+
+# ONE UNIFIED COMMUNITY GENEALOGY GRAPH
+
+Each approved member becomes:
+
+* A person/node inside the global community genealogy network
+
+Family relationships connect nodes together dynamically.
+
+This architecture ensures:
+
+* No disconnected duplicate trees
+* Better relationship matching
+* Easier family merging
+* Shared ancestry support
+* Long-term scalability
+
+---
+
+# 3. User Roles
+
+---
+
+# 3.1 Admin Role
+
+Admins shall have full authority over:
 
 * Member approvals
-* Family tree approvals
-* Edit approvals
-* Colour tagging of members
-* Data corrections
+* Family linkage approvals
 * Duplicate handling
-* Family tree moderation
-* Viewing all submissions and changes
+* Family merge approvals
+* Edit approvals
+* Colour coding
+* Relationship restructuring
+* Profile corrections
+* Tree moderation
+* Viewing audit history
+
+Admins shall have the ability to:
+
+* Merge duplicate profiles
+* Link disconnected branches
+* Approve/reject all changes
+* Review intelligent family match suggestions
 
 ---
 
-## 2.2 Member Role
+# 3.2 Member Role
 
-Approved members can:
+Approved members shall be able to:
 
 * Register and login
-* Submit/edit profile details
-* View all approved family trees
-* Suggest edits to any family member
-* Submit relationship corrections
-* Upload photographs
-* Search family trees
+* Submit/edit personal details
+* View approved community family trees
+* Suggest edits
+* Suggest relationships
+* Upload photos
+* Search family members
+* Suggest missing lineage connections
 
 However:
 
-* No changes become live immediately
-* Every new entry or modification requires Admin approval
+* No changes shall go live immediately
+* Every addition/edit requires admin approval
 
 ---
 
-# 3. Registration Requirements
+# 4. Registration Requirements
 
 # IMPORTANT RULE
 
-## ALL QUESTIONS ARE OPTIONAL
+## ALL REGISTRATION QUESTIONS ARE OPTIONAL
 
 The system must NOT force users to fill any field.
 
-Every field in registration must remain optional.
+Every field in the registration form must remain optional.
 
-Members should be able to:
+Users shall be allowed to:
 
 * Submit partial information
-* Save incomplete information
-* Return later and edit/update details BEFORE approval
+* Save incomplete drafts
+* Revisit profile before approval
+* Edit/update details before approval
+
+Only minimal validation is required for:
+
+* Mobile number format
+* Email format
+
+if entered.
 
 ---
 
-# 4. Registration Form Fields
+# 5. Registration Form Fields
 
 The registration form shall contain the following optional fields:
 
-| Field No | Field Name                                      |
-| -------- | ----------------------------------------------- |
-| 1        | Full Name                                       |
-| 2        | Nick Name                                       |
-| 3        | Mobile Number                                   |
-| 4        | Email Address                                   |
-| 5        | Present Address                                 |
-| 6        | Native Place                                    |
-| 7        | Year of Birth (Only Year, NOT full DOB)         |
-| 8        | Father's Name                                   |
-| 9        | Mother's Name                                   |
-| 10       | Is Father a Tamil Brahmin? (Yes/No)             |
-| 11       | If No, Please Mention Father's Community        |
-| 12       | Is Mother a Tamil Brahmin? (Yes/No)             |
-| 13       | If No, Please Mention Mother's Community        |
-| 14       | Whether Married? (Yes/No)                       |
-| 15       | If Married, Is Spouse a Tamil Brahmin? (Yes/No) |
-| 16       | If No, Please Mention Spouse Community          |
-| 17       | Your Gothram                                    |
-| 18       | Gothram of Spouse Before Marriage               |
-| 19       | Upload Photo of Self                            |
-| 20       | Any Other Remarks                               |
+| No | Field                                           |
+| -- | ----------------------------------------------- |
+| 1  | Full Name                                       |
+| 2  | Nick Name                                       |
+| 3  | Mobile Number                                   |
+| 4  | Email Address                                   |
+| 5  | Present Address                                 |
+| 6  | Native Place                                    |
+| 7  | Year of Birth (Only Year, NOT Date of Birth)    |
+| 8  | Father's Name                                   |
+| 9  | Mother's Name                                   |
+| 10 | Is Father a Tamil Brahmin? (Yes/No)             |
+| 11 | If No, Mention Father's Community               |
+| 12 | Is Mother a Tamil Brahmin? (Yes/No)             |
+| 13 | If No, Mention Mother's Community               |
+| 14 | Whether Married? (Yes/No)                       |
+| 15 | If Married, Is Spouse a Tamil Brahmin? (Yes/No) |
+| 16 | If No, Mention Spouse Community                 |
+| 17 | Your Gothram                                    |
+| 18 | Gothram of Spouse Before Marriage               |
+| 19 | Upload Photo of Self                            |
+| 20 | Any Other Remarks                               |
 
 ---
 
-# 5. Registration Workflow
+# 6. Registration Workflow
 
-## Step 1 — Member Registration
+---
+
+# Step 1 — User Registration
 
 User creates account using:
 
 * Mobile number OR email
-* Password/OTP authentication
+* Password OR OTP authentication
 
 ---
 
-## Step 2 — Optional Data Entry
+# Step 2 — Optional Data Submission
 
-User fills any number of optional fields.
+User may fill:
 
-No mandatory validation except:
+* Any number of fields
+* Partial information
+* Draft details
 
-* Basic format validation for email/mobile if entered
+No field is compulsory.
 
 ---
 
-## Step 3 — Draft Save Capability
+# Step 3 — Draft Editing Before Approval
 
-Before admin approval:
+Before approval:
 
 * User can revisit profile
-* Edit data
-* Resubmit information
-* Upload/change photo
-* Add/remove details
+* Edit details
+* Add/remove information
+* Change uploaded photo
+* Save drafts multiple times
 
-Status shown as:
+Possible statuses:
 
 * Draft
 * Pending Approval
 
 ---
 
-## Step 4 — Admin Review
+# Step 4 — Admin Review
 
 Admin reviews:
 
 * Authenticity
 * Duplicate possibility
 * Community relevance
-* Family linkage possibility
+* Family linkage possibilities
 
 Admin actions:
 
 * Approve
 * Reject
 * Request clarification
+* Request additional details
 
 ---
 
-## Step 5 — Family Tree Generation
+# Step 5 — Member Approval
 
 After approval:
 
-* Member becomes publicly visible to all approved members
-* System generates family tree node
-* Unique Family Tree Code is assigned
+* Member becomes visible to approved community members
+* Member becomes part of community genealogy graph
+* Unique Family Tree Code is generated
 
 ---
 
-# 6. Unique Member Code System
+# 7. Unique Family Tree Member Code System
 
-Each approved member shall receive:
+Every approved member shall receive a:
 
-## Unique Family Tree ID
+# Unique Family Tree Member Code
 
 Example:
 
 * TB000001
 * TB000002
+* TB000003
 
-Rules:
+---
+
+# Rules
+
+The code must be:
 
 * Auto-generated
-* Permanent
 * Unique
+* Permanent
 * Searchable
-
-This code should appear:
-
-* In profile
-* In family tree
-* In admin dashboard
-* In search results
+* Never reused
+* Assigned only after approval
 
 ---
 
-# 7. Family Tree Requirements
+# Purpose of Unique Code
 
-# 7.1 Automatic Tree Creation
+The code shall help:
 
-After approval:
-
-* Member node gets created automatically
-
-The tree should support:
-
-* Father linkage
-* Mother linkage
-* Spouse linkage
-* Children linkage
-* Multi-generation expansion
+* Identify members uniquely
+* Avoid duplicate confusion
+* Track genealogy relationships
+* Simplify admin approvals
+* Enable family branch tracking
 
 ---
 
-# 7.2 Visible Information in Tree
+# Code Visibility
 
-The family tree node should display:
+The code should appear in:
 
-* Name
-* Year of Birth
-* Native Place
+* Member profile
+* Family tree node
+* Search results
+* Admin dashboard
+* Relationship suggestions
+
+---
+
+# IMPORTANT
+
+Even though all members belong to the unified genealogy graph, EACH approved member must still have an independent unique member code.
+
+The code identifies:
+
+* The person/member
+  NOT
+* A separate isolated family tree.
+
+---
+
+# 8. Intelligent Family Linkage & Merge System
+
+The system shall intelligently search for existing family relationships whenever a new member is approved.
+
+The objective is to:
+
+* Avoid duplicate disconnected family trees
+* Connect related family branches
+* Build one unified genealogy network
+
+---
+
+# 8.1 Relationship Matching Engine
+
+The system should search using:
+
+* Father name
+* Mother name
 * Gothram
-* Profile Photo (optional)
+* Native place
+* Spouse details
+* Year of birth
+* Existing relationships
+* Nick names
+* Family branch similarities
 
-No sensitive data like:
+---
+
+# 8.2 Suggested Relationship Detection
+
+The system may generate suggestions such as:
+
+* Possible brother match
+* Possible uncle relationship
+* Possible cousin linkage
+* Possible duplicate member
+* Possible shared ancestor
+
+---
+
+# 8.3 Relationship Confidence Score
+
+The system should assign confidence scores.
+
+Example:
+
+| Match Type             | Confidence |
+| ---------------------- | ---------- |
+| Same father + gothram  | 95%        |
+| Same native place only | 40%        |
+| Same spouse lineage    | 75%        |
+
+---
+
+# 8.4 Admin Approval Required
+
+NO automatic merge shall happen.
+
+All relationship merges require:
+
+* Admin review
+* Admin approval
+
+Admin may:
+
+* Approve linkage
+* Reject linkage
+* Keep separate temporarily
+* Merge duplicate profiles
+* Restructure relationships manually
+
+---
+
+# 8.5 Non-Destructive Merge Rules
+
+The system must NEVER permanently delete genealogy records.
+
+Instead:
+
+* Duplicate records may be archived
+* Merge history must be preserved
+* Original submissions must remain traceable
+
+---
+
+# 9. Family Tree Requirements
+
+---
+
+# 9.1 Unified Community Tree
+
+The platform shall maintain:
+
+* One interconnected community genealogy graph
+
+Each member becomes:
+
+* A node/person within the network
+
+Relationships may include:
+
+* Father
+* Mother
+* Son
+* Daughter
+* Husband
+* Wife
+* Sibling
+* Uncle
+* Aunt
+* Cousin
+* Ancestor branches
+
+---
+
+# 9.2 Family Tree Node Display
+
+Each visible family tree node shall display:
+
+* Full name
+* Year of birth
+* Native place
+* Gothram
+* Profile photo (optional)
+* Unique member code
+
+Sensitive information shall remain hidden.
+
+---
+
+# 9.3 Hidden Information
+
+The following must NOT appear publicly:
 
 * Mobile number
-* Address
 * Email
+* Address
+* Remarks
+* Pending edits
 
-should appear publicly unless allowed by admin settings.
+Unless explicitly allowed by admin policy.
 
 ---
 
-# 7.3 Tree Visualization
+# 9.4 Tree Visualization Features
 
 The tree should support:
 
 * Expand/collapse
 * Zoom in/out
 * Mobile touch support
-* Horizontal & vertical layout
-* Large family structures
+* Horizontal layout
+* Vertical layout
+* Large family rendering
+* Smooth navigation
 
 ---
 
-# 8. Colour Coding System
+# 10. Colour Coding System
 
-Admins should be able to assign different colours to specific members or nodes in the family tree.
+Admins shall be able to assign colours to specific members or branches.
 
 Purpose:
 
-* Identify lineage categories
-* Identify verified branches
-* Mark special family status
-* Distinguish submitted data conditions
+* Verified lineage identification
+* Pending clarification
+* Branch grouping
+* Special lineage marking
+* Research-required marking
 
 Examples:
 
@@ -278,35 +485,33 @@ Requirements:
 
 ---
 
-# 9. Edit & Approval Workflow
+# 11. Edit & Approval Workflow
 
-# CRITICAL REQUIREMENT
+# CRITICAL RULE
 
 ## NO DIRECT LIVE EDITS
 
-After approval:
-
-* No member can directly modify live family tree data
+Approved data must NEVER change directly.
 
 ---
 
-# 9.1 Edit Request System
+# 11.1 Edit Request System
 
-Any approved member can:
+Any approved member may:
 
 * Suggest edits
-* Add relationships
 * Correct names
-* Upload additional data
-* Suggest lineage changes
+* Suggest relationships
+* Add lineage details
+* Upload historical information
 
 ---
 
-# 9.2 Pending Approval Queue
+# 11.2 Approval Queue
 
-Every edit request must enter:
+Every modification must enter:
 
-* Admin Review Queue
+* Pending Approval Queue
 
 Only after admin approval:
 
@@ -314,9 +519,9 @@ Only after admin approval:
 
 ---
 
-# 9.3 Change Tracking
+# 11.3 Change Tracking
 
-System must store:
+The system must store:
 
 * Old value
 * New value
@@ -327,149 +532,156 @@ System must store:
 
 ---
 
-# 10. Member Contribution System
+# 11.4 Audit History
 
-Any approved member should be allowed to:
+All changes must remain traceable permanently.
+
+---
+
+# 12. Member Contribution System
+
+Any approved member may:
 
 * Suggest corrections for any family member
-* Add missing relationships
-* Suggest parent-child connections
-* Add missing spouse information
-* Upload historical details
+* Add missing lineage information
+* Suggest parent-child relationships
+* Suggest spouse relationships
+* Suggest branch merges
 
-But:
+However:
 
-* Nothing becomes public without admin approval
-
----
-
-# 11. Admin Dashboard Requirements
-
-## Dashboard Features
-
-Admins should be able to:
-
-### Member Management
-
-* Approve/reject registrations
-* Suspend members
-* Edit profiles
-* Merge duplicate members
+* Nothing becomes live without admin approval
 
 ---
 
-### Approval Queue
+# 13. Search Requirements
 
-* Pending registrations
-* Pending edits
-* Pending relationship requests
-* Pending photo approvals
-
----
-
-### Family Tree Controls
-
-* Manual linkage correction
-* Colour assignment
-* Relationship approval
-* Tree restructuring
-
----
-
-### Search & Filters
-
-Search by:
-
-* Name
-* Native place
-* Gothram
-* Member code
-* Family branch
-
----
-
-# 12. Search Requirements
-
-Approved members can search by:
+Approved members shall be able to search by:
 
 * Name
 * Nick name
 * Native place
 * Gothram
-* Family code
+* Unique member code
 * Father name
 * Mother name
+* Family branch
 
 ---
 
-# 13. Privacy Requirements
+# 14. Admin Dashboard Requirements
 
-## Public Visibility Rules
+---
 
-Only approved members can view family trees.
+# 14.1 Member Management
 
-Guest/public users should NOT access:
+Admins shall be able to:
 
-* Trees
+* Approve/reject members
+* Suspend members
+* Edit profiles
+* Merge duplicates
+* Archive profiles
+
+---
+
+# 14.2 Approval Queue
+
+Admin dashboard must display:
+
+* Pending registrations
+* Pending edits
+* Pending merges
+* Pending relationships
+* Pending photo approvals
+
+---
+
+# 14.3 Family Tree Controls
+
+Admins shall be able to:
+
+* Manually restructure branches
+* Approve merges
+* Approve lineage links
+* Assign colours
+* Correct relationships
+
+---
+
+# 14.4 Search & Filters
+
+Admin search should support:
+
+* Name
+* Gothram
+* Native place
+* Member code
+* Branch
+* Relationship type
+
+---
+
+# 15. Privacy Requirements
+
+Only approved members may:
+
+* View trees
+* Search members
+* Explore relationships
+
+Guest/public users must NOT access:
+
 * Member data
-* Search
+* Family trees
+* Search system
 
 ---
 
-## Hidden Data
-
-The following should NOT be publicly visible:
-
-* Mobile number
-* Email
-* Address
-* Remarks
-* Pending submissions
-
-Unless specifically permitted by admin policy.
+# 16. Technical Requirements
 
 ---
 
-# 14. Technical Requirements
+# Frontend
 
-## Frontend
-
-* Mobile-first responsive design
-* Simple UI for elderly users
-* Large fonts/buttons
-
-Suggested:
+Recommended:
 
 * React.js
 * Tailwind CSS
 
+Requirements:
+
+* Mobile-first
+* Elder-friendly UI
+* Large fonts/buttons
+
 ---
 
-## Backend
+# Backend
 
-Suggested:
+Recommended:
 
 * Node.js + Express
 
-OR
-
-* Firebase backend
-
 ---
 
-## Database
+# Database
 
-Suggested:
+Recommended:
 
 * PostgreSQL
 
-OR
+Reason:
 
-* MongoDB
+* Better relationship handling
+* Better genealogy querying
+* Better scalability
 
 ---
 
-## Authentication
+# Authentication
+
+Recommended:
 
 * OTP login
   OR
@@ -477,17 +689,19 @@ OR
 
 ---
 
-# 15. Database Structure (High Level)
+# 17. Database Structure (High Level)
 
-## Main Tables
+---
+
+# Main Tables
 
 ### Users
 
 Stores:
 
-* Account details
-* Login credentials
+* Authentication data
 * Approval status
+* Roles
 
 ---
 
@@ -495,10 +709,10 @@ Stores:
 
 Stores:
 
-* Personal details
+* Personal profile information
 * Gothram
 * Native place
-* Community information
+* Community details
 
 ---
 
@@ -506,9 +720,9 @@ Stores:
 
 Stores:
 
-* Parent-child links
-* Spouse links
-* Relationship mapping
+* Parent-child relationships
+* Spouse relationships
+* Branch linkage
 
 ---
 
@@ -516,9 +730,19 @@ Stores:
 
 Stores:
 
-* Requested edits
-* Approval status
-* Audit trail
+* Proposed edits
+* Approval workflow
+* Change history
+
+---
+
+### MergeSuggestions
+
+Stores:
+
+* Possible relationship matches
+* Confidence scores
+* Admin decisions
 
 ---
 
@@ -526,76 +750,83 @@ Stores:
 
 Stores:
 
-* Admin approvals
+* Approvals
 * Rejections
 * Colour assignments
+* Merge decisions
 
 ---
 
-# 16. Audit & Security Requirements
+# 18. Security & Audit Requirements
 
-System must log:
+The system must log:
 
 * Registrations
+* Logins
 * Edits
-* Approval actions
 * Relationship changes
-* Login activity
+* Merge approvals
+* Admin actions
 
 Security requirements:
 
 * HTTPS only
 * Encrypted passwords
 * Role-based access
-* Protection against unauthorized edits
+* Secure APIs
+* Unauthorized edit prevention
 
 ---
 
-# 17. Scalability Requirements
+# 19. Scalability Requirements
 
-The application should support:
+The platform should support:
 
 * Thousands of members
-* Large interconnected trees
-* High mobile usage
-* Future Android app integration
+* Large interconnected genealogy structures
+* Multi-generation trees
+* Heavy mobile usage
+* Future Android app support
 
 ---
 
-# 18. Future Enhancements (Phase 2)
+# 20. Future Enhancements
 
-Potential future modules:
+Future modules may include:
 
 * Matrimony integration
-* Community events
-* Temple mapping
+* Temple/community mapping
+* Event management
+* Family archives
 * Heritage records
-* Family photo archives
-* AI duplicate detection
-* Elder verification system
+* AI-assisted duplicate detection
+* Elder verification workflows
+* Android app
 
 ---
 
-# 19. MVP (Minimum Viable Product)
+# 21. MVP (Minimum Viable Product)
 
-## Version 1 Must Include
+Version 1 must include:
 
 ### Member Features
 
 * Registration/login
 * Optional profile form
-* Family tree generation
-* Edit request submission
+* Draft saving
+* Family tree visibility
 * Search
+* Edit request system
 
 ---
 
 ### Admin Features
 
-* Approval system
-* Edit moderation
+* Approval workflows
+* Merge approvals
 * Colour coding
-* Tree management
+* Relationship management
+* Audit tracking
 
 ---
 
@@ -604,18 +835,22 @@ Potential future modules:
 * Mobile responsive UI
 * Secure authentication
 * Unique member codes
-* Audit logging
+* Unified genealogy graph
+* Non-destructive editing
 
 ---
 
-# 20. Final Core Principles
+# 22. Final Core Principles
 
-The system must prioritize:
+The platform must prioritize:
 
 1. Community privacy
 2. Admin-controlled accuracy
-3. Easy contribution from members
-4. Historical lineage preservation
-5. Non-destructive edit workflow
-6. Mobile-first usability
-7. Scalability for future generations
+3. Unified genealogy architecture
+4. Non-destructive editing
+5. Relationship traceability
+6. Long-term lineage preservation
+7. Mobile-first simplicity
+8. Scalability for future generations
+9. Duplicate prevention and intelligent merging
+10. Collaborative community contribution
